@@ -1,0 +1,91 @@
+{
+  "name": "Ada Lovelace",
+  "short_name": "Ada",
+  "lang": "en",
+  "site_url": "https://adalovelace.github.io/",
+  "location": "London, United Kingdom",
+  "card_subtitle": "Mathematician · Analytical Engine",
+  "headline": "Mathematician working on general-purpose computation, symbolic logic and the machines that connect them.",
+  "description": "Mathematician in London. Available from January 1844.",
+
+  "sections": [
+    {
+      "label": "Education",
+      "rows": [
+        {
+          "meta": "Private tuition · 1833",
+          "title": "University of London",
+          "sub": "Mathematics — under Augustus De Morgan",
+          "note": "Correspondence course in analysis, logic and the calculus of functions."
+        }
+      ]
+    },
+    {
+      "label": "Experience",
+      "rows": [
+        {
+          "meta": "1842–1843",
+          "title": "Analytical Engine programme",
+          "sub": "Translator and annotator",
+          "note": "Translated Menabrea's memoir and added notes three times its length, including an algorithm for computing Bernoulli numbers."
+        }
+      ]
+    },
+    {
+      "label": "Capabilities",
+      "list": [
+        "Algorithm design — symbolic computation and looping constructs",
+        "Technical translation — French to English, with commentary",
+        "Mathematical analysis — series expansion and numerical methods"
+      ]
+    }
+  ],
+
+  "availability": {
+    "label": "Availability",
+    "text": "Available for collaboration from **January 1844**, based in London."
+  },
+
+  "cv": {
+    "href": "assets/Ada_Lovelace_CV.pdf",
+    "source": "./Ada_Lovelace_CV.pdf",
+    "label": "Download CV",
+    "meta": "PDF · 2 pages"
+  },
+
+  "vcard": {
+    "email": "ada@example.com",
+    "url": "https://adalovelace.github.io/",
+    "city": "London",
+    "country": "United Kingdom",
+    "title": "Mathematician"
+  },
+
+  "channels": [
+    {
+      "key": "vcard",
+      "label": "Contact",
+      "caption": "Scan to save my contact",
+      "cta": "Email me"
+    },
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/example/",
+      "handle": "in/example"
+    },
+    {
+      "key": "github",
+      "label": "GitHub",
+      "url": "https://github.com/example",
+      "handle": "github.com/example"
+    }
+  ],
+
+  "theme": {
+    "accent_light": "#0B6B5B",
+    "accent_dark": "#54D3B6"
+  },
+
+  "icon": { "monogram": "AL" }
+}

@@ -1,0 +1,99 @@
+{
+  "name": "Qirui Miao",
+  "short_name": "Qirui Miao",
+  "lang": "en",
+  "site_url": "https://qiruimiao.github.io/",
+  "location": "London, United Kingdom",
+  "card_subtitle": "MSc Advanced Materials Science · UCL",
+  "headline": "Materials scientist with hands-on precision-manufacturing experience and an applied machine-learning background.",
+  "description": "Materials scientist in London. MSc Advanced Materials Science, UCL. Available for full-time roles from 21 September 2026.",
+
+  "sections": [
+    {
+      "label": "Education",
+      "rows": [
+        {
+          "meta": "MSc · 2026",
+          "title": "University College London",
+          "sub": "Advanced Materials Science — Data-driven Innovation",
+          "note": "Dissertation: DFT-derived oxidation energy prediction for organic cathode molecules using machine learning"
+        },
+        {
+          "meta": "BSc (Hons) · 2025",
+          "title": "King's College London",
+          "sub": "Geography & Environmental Science with Spatial Data Science",
+          "note": "Dissertation: Optimising the UK's offshore wind energy permitting process"
+        }
+      ]
+    },
+    {
+      "label": "Experience",
+      "rows": [
+        {
+          "meta": "Summers 2023–2025",
+          "title": "XLASER OPTICS, Shanghai",
+          "sub": "Technical Operations & Sales Intern",
+          "note": "Precision optics and optical coatings — international customer specifications, CAD drawings, coating-workshop operations and production quality inspection."
+        }
+      ]
+    },
+    {
+      "label": "Capabilities",
+      "list": [
+        "CAD and design for manufacture — Fusion 360, AutoCAD, FDM printing",
+        "Applied machine learning for materials — Python, RDKit, XGBoost",
+        "Metrology and quality inspection — dimensional, surface and coating defects",
+        "Technical customer communication — English and Mandarin"
+      ]
+    }
+  ],
+
+  "availability": {
+    "label": "Availability",
+    "text": "Available for full-time roles from **21 September 2026**, based in London."
+  },
+
+  "cv": {
+    "href": "assets/Qirui_Miao_CV.pdf",
+    "source": "/Users/qirui/Developer/qiruimiao.github.io/assets/Qirui_Miao_CV.pdf",
+    "label": "Download CV",
+    "meta": "PDF · 2 pages"
+  },
+
+  "channels": [
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/qr/JVVGJ6DVEJS3P1",
+      "caption": "Scan to add me on WhatsApp",
+      "handle": "wa.me/qr/JVVGJ6DVEJS3P1",
+      "cta": "Open WhatsApp"
+    },
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/qirui-miao-b684bb381/",
+      "caption": "Scan to open my LinkedIn",
+      "handle": "in/qirui-miao",
+      "cta": "Open LinkedIn"
+    },
+    {
+      "key": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/jecsrry/",
+      "caption": "Scan to open my Instagram",
+      "handle": "@jecsrry",
+      "cta": "Open Instagram"
+    },
+    {
+      "key": "github",
+      "label": "GitHub",
+      "url": "https://github.com/qiruimiao",
+      "caption": "Scan to open my GitHub",
+      "handle": "github.com/qiruimiao",
+      "cta": "Open GitHub"
+    }
+  ],
+
+  "icon": { "monogram": "QM" }
+}
