@@ -200,8 +200,6 @@ def portrait_tag(cfg, out_dir):
     src = cfg.get("portrait")
     if not src:
         return ""
-    if not os.path.exists(src):
-        sys.exit("config error: portrait %r not found" % src)
     mime = {"jpg": "image/jpeg", "jpeg": "image/jpeg",
             "png": "image/png", "webp": "image/webp"}.get(src.rsplit(".", 1)[-1].lower())
     if not mime:
@@ -212,6 +210,46 @@ def portrait_tag(cfg, out_dir):
 
 
 # ------------------------------------------------------------------------ build
+
+def validate(cfg, config_path):
+    """Check everything the build depends on before writing any output.
+
+    Failing here beats failing halfway through with a traceback and a
+    half-written site directory.
+    """
+    where = os.path.dirname(os.path.abspath(config_path)) or "."
+
+    for required in ("name", "channels"):
+        if not cfg.get(required):
+            sys.exit("config error: %r is required" % required)
+
+    def resolve(path):
+        return path if os.path.isabs(path) else os.path.join(where, path)
+
+    cv = cfg.get("cv")
+    if cv:
+        if not cv.get("href"):
+            sys.exit("config error: `cv.href` is required when `cv` is present "
+                     "(the public path, e.g. \"assets/CV.pdf\")")
+        src = cv.get("source")
+        if src:
+            full = resolve(src)
+            if not os.path.exists(full):
+                sys.exit(
+                    "config error: CV file not found: %s\n"
+                    "  `cv.source` must point at a real file, relative to the config.\n"
+                    "  Point it at your own CV, or delete the whole \"cv\" block to\n"
+                    "  build without a download button." % full)
+            cv["source"] = full
+
+    portrait = cfg.get("portrait")
+    if portrait:
+        full = resolve(portrait)
+        if not os.path.exists(full):
+            sys.exit("config error: portrait not found: %s\n"
+                     "  Point `portrait` at a real image, or remove the field." % full)
+        cfg["portrait"] = full
+
 
 def build(cfg, out_dir):
     os.makedirs(out_dir, exist_ok=True)
@@ -341,10 +379,11 @@ def main():
     ap.add_argument("--skip-icons", action="store_true")
     args = ap.parse_args()
 
-    cfg = json.load(io.open(args.config, encoding="utf-8"))
-    for required in ("name", "channels"):
-        if not cfg.get(required):
-            sys.exit("config error: %r is required" % required)
+    try:
+        cfg = json.load(io.open(args.config, encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        sys.exit("config error: %s is not valid JSON - %s" % (args.config, e))
+    validate(cfg, args.config)
 
     print("Building %s" % cfg["name"])
     build(cfg, args.out)
