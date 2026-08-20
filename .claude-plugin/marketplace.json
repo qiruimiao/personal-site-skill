@@ -1,18 +1,33 @@
 {
   "name": "personal-site-skill",
-  "owner": { "name": "Qirui Miao", "url": "https://github.com/qiruimiao" },
+  "owner": {
+    "name": "Qirui Miao",
+    "url": "https://github.com/qiruimiao"
+  },
   "metadata": {
     "description": "Turn a CV and a few links into a deployable one-page personal site with scannable QR codes.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "personal-site",
       "source": "./",
       "description": "Build a one-page personal site with a business-card view, QR codes and a home-screen icon set, then deploy it on GitHub Pages.",
-      "version": "1.0.0",
-      "author": { "name": "Qirui Miao", "url": "https://github.com/qiruimiao" },
-      "keywords": ["personal-site", "portfolio", "cv", "resume", "qr-code", "github-pages", "pwa"]
+      "version": "1.1.0",
+      "author": {
+        "name": "Qirui Miao",
+        "url": "https://github.com/qiruimiao"
+      },
+      "keywords": [
+        "personal-site",
+        "portfolio",
+        "cv",
+        "resume",
+        "qr-code",
+        "github-pages",
+        "pwa",
+        "codex"
+      ]
     }
   ]
 }

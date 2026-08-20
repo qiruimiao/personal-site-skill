@@ -2,7 +2,7 @@
 
 Turn a CV and a few links into a one-page personal site — with QR codes people can scan off your screen, a business-card view for networking, and an icon you can add to your phone's home screen.
 
-Built for [Claude Code](https://claude.com/claude-code) as a skill, but the scripts run standalone.
+Works as a skill in [Claude Code](https://claude.com/claude-code) and [Codex](https://developers.openai.com/codex), or standalone from the command line.
 
 **Live example:** [qiruimiao.github.io](https://qiruimiao.github.io) · [card view](https://qiruimiao.github.io/#card)
 
@@ -21,16 +21,46 @@ Plus a home-screen icon set, a web manifest, and Open Graph tags so the link pre
 
 ## Quick start
 
-With Claude Code, point it at your CV and say what you want:
+The skill works the same in either agent: point it at your CV, say what you want, and it reads the CV, writes the config, builds and deploys. It asks before publishing anything sensitive.
 
 ```
 Build me a personal site from my CV at ~/Documents/CV.docx.
 LinkedIn: <url>, GitHub: <url>. Deploy it to GitHub Pages.
 ```
 
-The skill handles the rest: reading the CV, writing the config, building, and deploying. It will ask before publishing anything sensitive.
+### Claude Code
+
+Install as a plugin marketplace — recommended, since it stays updatable:
+
+```
+/plugin marketplace add qiruimiao/personal-site-skill
+/plugin install personal-site@personal-site-skill
+```
+
+Or copy it in:
+
+```bash
+git clone https://github.com/qiruimiao/personal-site-skill
+cp -r personal-site-skill/skills/personal-site ~/.claude/skills/
+```
+
+### Codex
+
+Codex reads the same `SKILL.md`, so the skill needs no changes — just put it somewhere Codex looks:
+
+```bash
+git clone https://github.com/qiruimiao/personal-site-skill
+mkdir -p ~/.agents/skills
+cp -r personal-site-skill/skills/personal-site ~/.agents/skills/
+```
+
+Then type `$` in Codex and pick `personal-site`, or `/skills` to list what it found. Codex picks up new skills automatically; restart it if one does not show up.
+
+To scope it to a single project instead of installing it for your whole user, drop it at `.agents/skills/personal-site` inside that repo — Codex scans from your working directory up to the repository root.
 
 ### Standalone
+
+No agent required; the scripts do the building, the agent only writes the config.
 
 ```bash
 pip install segno pillow
@@ -38,22 +68,6 @@ cp skills/personal-site/config.example.json config.json
 # edit config.json
 python3 skills/personal-site/scripts/build_site.py config.json --out ./site
 python3 -m http.server -d ./site 8000
-```
-
-## Install as a skill
-
-**As a plugin marketplace** (recommended — keeps it updatable):
-
-```
-/plugin marketplace add qiruimiao/personal-site-skill
-/plugin install personal-site@personal-site-skill
-```
-
-**Or copy it in:**
-
-```bash
-git clone https://github.com/qiruimiao/personal-site-skill
-cp -r personal-site-skill/skills/personal-site ~/.claude/skills/
 ```
 
 ## Configuration
