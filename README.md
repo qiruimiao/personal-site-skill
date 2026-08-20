@@ -81,7 +81,9 @@ One JSON file drives everything. See [`config.example.json`](skills/personal-sit
 }
 ```
 
-Write **plain text** — real `·` `—` `–` characters, not HTML entities. The builder escapes and encodes for you. Only `**bold**` is treated as markup.
+Write **plain text** — real `·` `—` `–` characters, not HTML entities. The builder escapes and encodes for you.
+
+Two bits of markup are interpreted in `sub`, `note`, `list` and `availability.text`: `**bold**` and `[text](https://url)`. A row can also take a `link` field, which turns its title into a link. Only `http(s)` URLs are accepted — everything else is escaped, so a config cannot inject markup or a `javascript:` URL.
 
 ### Channels
 

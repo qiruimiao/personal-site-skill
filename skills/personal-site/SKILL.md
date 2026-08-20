@@ -43,7 +43,9 @@ python3 scripts/build_site.py config.json --out ./site
 
 Write `config.json` from the CV. Start from `config.example.json`; `examples/qirui.json` in the repo root is a complete real one.
 
-**Write plain text in the config — real characters like `·` `—` `–`, not HTML entities.** The builder escapes and encodes for you; typing `&middot;` yields a literal `&middot;` on the page. Only `**bold**` is interpreted as markup, in `sub`, `note`, `list` and `availability.text`.
+**Write plain text in the config — real characters like `·` `—` `–`, not HTML entities.** The builder escapes and encodes for you; typing `&middot;` yields a literal `&middot;` on the page.
+
+Two bits of markup are interpreted in `sub`, `note`, `list` and `availability.text`: `**bold**` and `[text](https://url)`. A row may also carry `link`, which makes its title a link with an outbound arrow — good for a project row. Only `http(s)` URLs are accepted; anything else aborts the build rather than emitting it.
 
 Key fields:
 

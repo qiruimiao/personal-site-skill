@@ -7,7 +7,6 @@
   "card_subtitle": "MSc Advanced Materials Science · UCL",
   "headline": "Materials scientist with hands-on precision-manufacturing experience and an applied machine-learning background.",
   "description": "Materials scientist in London. MSc Advanced Materials Science, UCL. Available for full-time roles from 21 September 2026.",
-
   "sections": [
     {
       "label": "Education",
@@ -38,6 +37,18 @@
       ]
     },
     {
+      "label": "Selected work",
+      "rows": [
+        {
+          "meta": "Open source · 2026",
+          "title": "personal-site",
+          "link": "https://github.com/qiruimiao/personal-site-skill",
+          "sub": "Python · Claude Code skill",
+          "note": "Turns a CV and a set of links into a deployable one-page site — QR codes encoded at build time, a business-card view and a home-screen icon set. Same pipeline that builds this page."
+        }
+      ]
+    },
+    {
       "label": "Capabilities",
       "list": [
         "CAD and design for manufacture — Fusion 360, AutoCAD, FDM printing",
@@ -47,19 +58,16 @@
       ]
     }
   ],
-
   "availability": {
     "label": "Availability",
     "text": "Available for full-time roles from **21 September 2026**, based in London."
   },
-
   "cv": {
     "href": "assets/Qirui_Miao_CV.pdf",
     "source": "/Users/qirui/Developer/qiruimiao.github.io/assets/Qirui_Miao_CV.pdf",
     "label": "Download CV",
     "meta": "PDF · 2 pages"
   },
-
   "channels": [
     {
       "key": "whatsapp",
@@ -94,6 +102,7 @@
       "cta": "Open GitHub"
     }
   ],
-
-  "icon": { "monogram": "QM" }
+  "icon": {
+    "monogram": "QM"
+  }
 }

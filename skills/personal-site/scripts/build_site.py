@@ -104,9 +104,25 @@ def entify(s):
     return "".join(c if ord(c) < 128 else "&#%d;" % ord(c) for c in s)
 
 
-def bold_md(s):
-    """Only markup allowed in prose fields: **bold**."""
-    return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", esc(s))
+_LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^\s)]+)\)")
+
+
+def inline_md(s):
+    """Markup allowed in prose fields: **bold** and [text](https://url).
+
+    Everything is HTML-escaped first, so the only markup that survives is what
+    this function puts back. Only http(s) links are recognised - no javascript:
+    or data: URLs can be smuggled in through a config.
+    """
+    out = esc(s)
+    out = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", out)
+    out = _LINK_RE.sub(
+        lambda m: '<a href="%s" target="_blank" rel="noopener">%s</a>' % (m.group(2), m.group(1)),
+        out)
+    return out
+
+
+bold_md = inline_md  # kept for readability at call sites
 
 
 def build_channels(cfg):
@@ -170,7 +186,14 @@ def build_sections(cfg):
             rows = []
             for r in sec.get("rows") or []:
                 bits = ['<p class="meta mono">%s</p>' % esc(r["meta"])] if r.get("meta") else []
-                bits.append("<h3>%s</h3>" % esc(r.get("title", "")))
+                title = esc(r.get("title", ""))
+                if r.get("link"):
+                    if not r["link"].startswith(("http://", "https://")):
+                        sys.exit("config error: row link must be http(s): %r" % r["link"])
+                    title = ('<a href="%s" target="_blank" rel="noopener">%s'
+                             '<span class="ext" aria-hidden="true">&#8599;</span></a>'
+                             % (esc(r["link"]), title))
+                bits.append("<h3>%s</h3>" % title)
                 if r.get("sub"):
                     bits.append('<p class="sub">%s</p>' % bold_md(r["sub"]))
                 if r.get("note"):
