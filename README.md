@@ -1,5 +1,7 @@
 # personal-site
 
+**English** · [简体中文](README.zh-CN.md)
+
 Turn a CV and a few links into a one-page personal site — with QR codes people can scan off your screen, a business-card view for networking, and an icon you can add to your phone's home screen.
 
 Works as a skill in [Claude Code](https://claude.com/claude-code) and [Codex](https://developers.openai.com/codex), or standalone from the command line.
@@ -54,7 +56,7 @@ mkdir -p ~/.agents/skills
 cp -r personal-site-skill/skills/personal-site ~/.agents/skills/
 ```
 
-Then type `$` in Codex and pick `personal-site`, or `/skills` to list what it found. Codex picks up new skills automatically; restart it if one does not show up.
+Then, **inside Codex** (not at a shell prompt), type `$` and pick `personal-site`, or run `/skills` to list what it found. Codex picks up new skills automatically; restart it if one does not show up.
 
 To scope it to a single project instead of installing it for your whole user, drop it at `.agents/skills/personal-site` inside that repo — Codex scans from your working directory up to the repository root.
 
